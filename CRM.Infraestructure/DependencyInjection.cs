@@ -27,6 +27,9 @@ namespace CRM.Infraestructure
 
             services.AddScoped<IVisitaRepository, VisitaRepository>();
             services.AddScoped<IVisitaService, VisitaService>();
+
+            services.AddScoped<IReportRepository, ReportRepository>();
+            services.AddScoped<IReportService, ReportService>();
             return services;
         }
     }
