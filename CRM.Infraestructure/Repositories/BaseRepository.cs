@@ -1,6 +1,7 @@
 ﻿using CRM.Domain.Interfaces;
 using CRM.Infraestructure.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace CRM.Infraestructure.Repositories
 {
@@ -31,6 +32,15 @@ namespace CRM.Infraestructure.Repositories
         public async Task DeleteAsync(T entity)
         {
             _context.Set<T>().Remove(entity);
+            await _context.SaveChangesAsync();
+        }
+        public async Task<bool> ExistsAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await _context.Set<T>().AnyAsync(predicate);
+        }
+        public async Task AddRangeAsync(IEnumerable<T> entities)
+        {
+            await _context.Set<T>().AddRangeAsync(entities);
             await _context.SaveChangesAsync();
         }
 

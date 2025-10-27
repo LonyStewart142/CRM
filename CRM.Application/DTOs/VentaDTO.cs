@@ -8,5 +8,6 @@ namespace CRM.Application.DTOs
         public decimal Monto { get; set; }
         public int IdCliente { get; set; }
         public string Producto { get; set; } = null!;
+        public DateTime FechaVenta { get; set; }
     }
 }

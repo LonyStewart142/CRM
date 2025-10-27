@@ -1,5 +1,6 @@
 ﻿using CRM.Application.DTOs;
 using CRM.Application.Interfaces;
+using CRM.Application.Services;
 using CRM.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,5 +34,13 @@ namespace CRM.API.Controllers
             var created = await _service.CreateAsync(dto);
             return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }
+
+        [HttpPost("UploadVentas")]
+        public async Task<IActionResult> UploadVentas(IFormFile file)
+        {
+            var result = await _service.ProcesarArchivoAsync(file);
+            return Ok(result);
+        }
+
     }
 }
