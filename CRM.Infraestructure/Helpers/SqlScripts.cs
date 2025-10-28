@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+
+using System.Reflection;
 
 namespace CRM.Infraestructure.Helpers
 {
     internal static class SqlScripts
     {
-        private readonly static string RootPath = Path.Combine(Environment.CurrentDirectory, "SqlScripts");
+        private static readonly string RootPath = Path.Combine(
+     Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!,
+     "SqlScripts"
+ );
         public static string GetFileAsString(string filepath)
         {
             if (!File.Exists(filepath))
