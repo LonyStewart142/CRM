@@ -29,6 +29,15 @@ namespace CRM.Infraestructure.Data.Configurations
                   .WithOne(v => v.Ejecutivo)
                   .HasForeignKey(v => v.IdEjecutivo)
                   .OnDelete(DeleteBehavior.Restrict);
+
+
+            builder.HasData(
+              new Ejecutivo { Id = 1, Nombre = "Carlos", Apellido = "Rodríguez" },
+              new Ejecutivo { Id = 2, Nombre = "Marta", Apellido = "García" },
+              new Ejecutivo { Id = 3, Nombre = "José", Apellido = "Hernández" },
+              new Ejecutivo { Id = 4, Nombre = "Laura", Apellido = "Vega" }
+          );
+
         }
     }
 }
