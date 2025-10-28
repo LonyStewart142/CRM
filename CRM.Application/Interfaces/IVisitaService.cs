@@ -1,6 +1,5 @@
 ﻿using CRM.Application.DTOs;
 using CRM.Domain.Entities;
-
 namespace CRM.Application.Interfaces
 {
     public interface IVisitaService
@@ -8,5 +7,7 @@ namespace CRM.Application.Interfaces
         Task<IEnumerable<Visita>> GetAllAsync();
         Task<Visita?> GetByIdAsync(int id);
         Task<CreatedDTO> CreateAsync(VisitaDTO dto);
+  
+
     }
 }
